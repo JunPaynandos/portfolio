@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About | Jun</title>
+    <link rel="icon" type="image/png" href="/images/logo2.png" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script
+      src="https://unpkg.com/@alpinejs/intersect@3.x.x/dist/cdn.min.js"
+      defer
+    ></script>
+    <script
+      src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"
+      defer
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="bg-black text-zinc-100 antialiased">
+    <canvas
+      id="particles"
+      class="fixed inset-0 -z-10 pointer-events-none opacity-20"
+    ></canvas>
+
+    <nav
+      x-data="{ open: false }"
+      class="absolute top-0 left-0 w-full z-50 bg-black/70 backdrop-blur border-zinc-800"
+    >
+      <div
+        class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between"
+      >
+        <a
+          href="index.html"
+          class="font-semibold text-lg tracking-tight hover:text-white transition"
+        >
+          Jun
+        </a>
+
+        <!-- Desktop Links -->
+        <div class="hidden sm:flex items-center gap-8 text-sm text-zinc-400">
+          <a href="about.html" class="relative text-white transition">
+            About
+            <span
+              class="hidden sm:block absolute -bottom-1 left-0 w-[70%] h-[2px] bg-white rounded-full"
+            ></span>
+          </a>
+          <a href="project_list.html" class="hover:text-white transition"
+            >Projects</a
+          >
+          <a href="contact.html" class="hover:text-white transition">Contact</a>
+
+          <a
+            href="https://github.com/JunPaynandos"
+            target="_blank"
+            class="text-zinc-400 hover:text-white transition"
+          >
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.26.82-.577v-2.03c-3.338.724-4.033-1.613-4.033-1.613-.546-1.386-1.333-1.755-1.333-1.755-1.09-.745.082-.73.082-.73 1.205.085 1.84 1.237 1.84 1.237 1.07 1.835 2.807 1.305 3.492.997.107-.775.418-1.305.762-1.605-2.665-.3-5.467-1.335-5.467-5.932 0-1.31.468-2.38 1.235-3.22-.124-.303-.535-1.523.117-3.176 0 0 1.008-.322 3.3 1.23a11.49 11.49 0 013.003-.403c1.02.004 2.045.138 3.003.403 2.29-1.552 3.296-1.23 3.296-1.23.653 1.653.242 2.873.118 3.176.77.84 1.233 1.91 1.233 3.22 0 4.61-2.807 5.628-5.48 5.922.43.37.823 1.103.823 2.222v3.293c0 .32.218.694.825.576C20.565 21.796 24 17.297 24 12c0-6.63-5.37-12-12-12z"
+              />
+            </svg>
+          </a>
+          <a
+            href="https://linkedin.com/in/yourusername"
+            target="_blank"
+            class="text-zinc-400 hover:text-white transition"
+          >
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-9h3v9zm-1.5-10.25c-.966 0-1.75-.784-1.75-1.75s.784-1.75 1.75-1.75 1.75.784 1.75 1.75-.784 1.75-1.75 1.75zm13.5 10.25h-3v-4.5c0-1.072-.927-2-2-2s-2 .928-2 2v4.5h-3v-9h3v1.25c.644-.927 1.78-1.25 2.5-1.25 2 0 3.5 1.5 3.5 4v5z"
+              />
+            </svg>
+          </a>
+          <a
+            href="https://facebook.com/jun.raxho"
+            target="_blank"
+            class="text-zinc-400 hover:text-white transition"
+          >
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M22.675 0h-21.35C.597 0 0 .593 0 1.326v21.348C0 23.407.597 24 1.325 24H12.82v-9.294H9.692v-3.622h3.128V8.413c0-3.1 1.894-4.788 4.659-4.788 1.325 0 2.464.098 2.795.142v3.24l-1.918.001c-1.504 0-1.796.716-1.796 1.767v2.317h3.587l-.467 3.622h-3.12V24h6.116C23.403 24 24 23.407 24 22.674V1.326C24 .593 23.403 0 22.675 0z"
+              />
+            </svg>
+          </a>
+        </div>
+
+        <!-- Mobile Hamburger -->
+        <button
+          @click="open = !open"
+          class="sm:hidden flex items-center text-zinc-400 hover:text-white focus:outline-none"
+        >
+          <svg
+            class="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              :class="{'hidden': open, 'inline-flex': !open }"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"
+            />
+            <path
+              :class="{'hidden': !open, 'inline-flex': open }"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M6 18L18 6M6 6l12 12"
+            />
+          </svg>
+        </button>
+      </div>
+
+      <!-- Mobile Dropdown -->
+      <div
+        x-show="open"
+        @click.away="open = false"
+        x-transition:enter="transition ease-out duration-300"
+        x-transition:enter-start="opacity-0 -translate-y-4"
+        x-transition:enter-end="opacity-100 translate-y-0"
+        x-transition:leave="transition ease-in duration-200"
+        x-transition:leave-start="opacity-100 translate-y-0"
+        x-transition:leave-end="opacity-0 -translate-y-4"
+        class="sm:hidden bg-black/90 backdrop-blur border-t border-b border-zinc-800 px-0 py-6 flex flex-col items-center text-zinc-400"
+      >
+        <a
+          href="about.html"
+          class="hover:text-white transition text-white sm:text-white text-center w-full border-b border-zinc-800 pb-3 mb-3"
+          >About</a
+        >
+        <a
+          href="project_list.html"
+          class="hover:text-white transition text-center w-full border-b border-zinc-800 pb-3 mb-3"
+          >Projects</a
+        >
+        <a
+          href="contact.html"
+          class="hover:text-white transition text-center w-full border-b border-zinc-800 pb-3 mb-3"
+          >Contact</a
+        >
+
+        <div class="flex gap-6 mt-4">
+          <a
+            href="https://github.com/JunPaynandos"
+            target="_blank"
+            class="hover:text-white transition"
+          >
+            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.26.82-.577v-2.03c-3.338.724-4.033-1.613-4.033-1.613-.546-1.386-1.333-1.755-1.333-1.755-1.09-.745.082-.73.082-.73 1.205.085 1.84 1.237 1.84 1.237 1.07 1.835 2.807 1.305 3.492.997.107-.775.418-1.305.762-1.605-2.665-.3-5.467-1.335-5.467-5.932 0-1.31.468-2.38 1.235-3.22-.124-.303-.535-1.523.117-3.176 0 0 1.008-.322 3.3 1.23a11.49 11.49 0 013.003-.403c1.02.004 2.045.138 3.003.403 2.29-1.552 3.296-1.23 3.296-1.23.653 1.653.242 2.873.118 3.176.77.84 1.233 1.91 1.233 3.22 0 4.61-2.807 5.628-5.48 5.922.43.37.823 1.103.823 2.222v3.293c0 .32.218.694.825.576C20.565 21.796 24 17.297 24 12c0-6.63-5.37-12-12-12z"
+              />
+            </svg>
+          </a>
+          <a
+            href="https://linkedin.com/in/yourusername"
+            target="_blank"
+            class="hover:text-white transition"
+          >
+            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-9h3v9zm-1.5-10.25c-.966 0-1.75-.784-1.75-1.75s.784-1.75 1.75-1.75 1.75.784 1.75 1.75-.784 1.75-1.75 1.75zm13.5 10.25h-3v-4.5c0-1.072-.927-2-2-2s-2 .928-2 2v4.5h-3v-9h3v1.25c.644-.927 1.78-1.25 2.5-1.25 2 0 3.5 1.5 3.5 4v5z"
+              />
+            </svg>
+          </a>
+          <a
+            href="https://facebook.com/jun.raxho"
+            target="_blank"
+            class="text-zinc-400 hover:text-white transition"
+          >
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M22.675 0h-21.35C.597 0 0 .593 0 1.326v21.348C0 23.407.597 24 1.325 24H12.82v-9.294H9.692v-3.622h3.128V8.413c0-3.1 1.894-4.788 4.659-4.788 1.325 0 2.464.098 2.795.142v3.24l-1.918.001c-1.504 0-1.796.716-1.796 1.767v2.317h3.587l-.467 3.622h-3.12V24h6.116C23.403 24 24 23.407 24 22.674V1.326C24 .593 23.403 0 22.675 0z"
+              />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <section
+      class="min-h-screen flex items-center pt-32"
+      x-data="{ show: false }"
+      x-init="setTimeout(() => show = true, 200)"
+    >
+      <div
+        class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center"
+      >
+        <div
+          x-show="show"
+          x-transition:enter="transition ease-out duration-700"
+          x-transition:enter-start="opacity-0 translate-y-6"
+          x-transition:enter-end="opacity-100 translate-y-0"
+        >
+          <h1 class="text-4xl md:text-5xl font-bold mb-6">About.</h1>
+          <div
+            class="absolute left-0 h-px bg-zinc-700 w-[100%] mb-6"
+            x-show="show"
+            x-transition:enter="transition-all ease-out duration-700 delay-200"
+            x-transition:enter-end="w-[120%] md:w-[140%]"
+          ></div>
+
+          <p
+            class="text-zinc-400 text-lg leading-relaxed mt-12 mb-4"
+            x-transition.delay.100ms
+          >
+            &nbsp;&nbsp;&nbsp;&nbsp;I'm
+            <span class="text-white font-semibold">Jun Rey Paynandos</span>, a
+            developer who enjoys building thoughtful digital experiences where
+            logic and design work together.
+          </p>
+
+          <p
+            class="text-zinc-400 text-lg leading-relaxed mb-4"
+            x-transition.delay.200ms
+          >
+            &nbsp;&nbsp;&nbsp;&nbsp;I focus on creating clean, efficient systems
+            while paying close attention to usability and visual clarity.
+            Whether it’s a web app, an interface, or a backend solution, I aim
+            for balance and simplicity.
+          </p>
+
+          <p
+            class="text-zinc-400 text-lg leading-relaxed"
+            x-transition.delay.300ms
+          >
+            &nbsp;&nbsp;&nbsp;&nbsp;I’m constantly learning and experimenting
+            with new technologies to improve my craft and turn ideas into
+            reliable, real-world products.
+          </p>
+        </div>
+
+        <div
+          class="flex justify-center"
+          x-show="show"
+          x-transition:enter="transition ease-out duration-700"
+          x-transition:enter-start="opacity-0 scale-90"
+          x-transition:enter-end="opacity-100 scale-100"
+        >
+          <div class="relative rounded-2xl p-8">
+            <img
+              src="images/jun1.png"
+              alt="Jun"
+              class="w-60 sm:w-60 md:w-[24rem] h-60 sm:h-60 md:h-[24rem] bg-zinc-700 mx-auto rounded-full object-cover border border-zinc-700 mt-0 sm:mt-0 md:-mt-28 mb-6"
+            />
+            <p class="text-zinc-400 text-center text-sm mt-12">
+              Web Developer • Designer • Creative Thinker
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS SECTION -->
+    <section
+      class="min-h-screen flex items-center pt-4"
+      x-data="{ show: false }"
+    >
+      <div
+        x-intersect.once.threshold.80="show = true"
+        class="relative bottom-32 left-0 w-px h-[420px]"
+      ></div>
+      <div class="max-w-6xl mx-auto px-6 w-full">
+        <div class="mb-20 text-center">
+          <h1 class="text-4xl md:text-5xl font-bold mb-4">My Skills</h1>
+        </div>
+
+        <!-- CHART -->
+        <div class="relative h-[420px]">
+          <!-- GRID LINES -->
+          <div
+            class="absolute inset-y-0 left-0 right-0 flex flex-col justify-between pointer-events-none"
+          >
+            <div
+              class="border-t border-zinc-800 w-[92%] md:w-[91.3%] ml-auto"
+            ></div>
+            <div
+              class="border-t border-zinc-800 w-[92%] md:w-[91.3%] ml-auto"
+            ></div>
+            <div
+              class="border-t border-zinc-800 w-[92%] md:w-[91.3%] ml-auto"
+            ></div>
+            <div
+              class="border-t border-zinc-800 w-[92%] md:w-[91.3%] ml-auto"
+            ></div>
+            <div
+              class="border-t border-zinc-800 w-[100%] md:w-[100%] ml-auto"
+            ></div>
+          </div>
+
+          <!-- LABELS -->
+          <div class="absolute left-0 top-0 h-full text-sm text-zinc-400">
+            <div
+              class="absolute top-0 -rotate-90 md:rotate-0 right-[-32px] md:-right-20 -translate-y-1/2"
+            >
+              Expert
+            </div>
+            <div
+              class="absolute top-1/4 -rotate-90 md:rotate-0 right-[-42px] md:-right-20 -translate-y-1/2"
+            >
+              Advanced
+            </div>
+            <div
+              class="absolute top-2/4 -rotate-90 md:rotate-0 right-[-52px] md:-right-20 -translate-y-1/2"
+            >
+              Intermediate
+            </div>
+            <div
+              class="absolute top-3/4 -rotate-90 md:rotate-0 right-[-40px] md:-right-20 -translate-y-1/2"
+            >
+              Beginner
+            </div>
+          </div>
+
+          <div class="relative h-full pl-20">
+            <div
+              class="absolute left-[35px] md:left-24 bottom-0 h-full w-px bg-zinc-800"
+            ></div>
+
+            <!-- BARS -->
+            <div
+              class="relative flex justify-center -left-6 md:-left-0 items-end gap-2 md:gap-6 h-full"
+            >
+              <!-- HTML -->
+              <div class="relative w-[20rem] md:w-40 h-full overflow-hidden">
+                <div
+                  class="absolute bottom-0 w-full rounded-t-xl rounded-b-none flex flex-col items-center justify-end pb-4 bg-gradient-to-t from-emerald-500 to-emerald-400 transition-[height] duration-1000 ease-out"
+                  :style="show ? 'height:90%' : 'height:0%'"
+                >
+                  <div class="flex items-end leading-none">
+                    <p class="text-2xl md:text-4xl font-bold text-white">90</p>
+                    <span
+                      class="text-sm md:text-lg font-semibold text-white mb-[.2rem] ml-1"
+                      >%</span
+                    >
+                  </div>
+                  <span class="text-xs font-bold text-white/90">HTML</span>
+                </div>
+              </div>
+
+              <!-- JS -->
+              <div class="relative w-[20rem] md:w-40 h-full overflow-hidden">
+                <div
+                  class="absolute bottom-0 w-full rounded-t-xl rounded-b-none flex flex-col items-center justify-end pb-4 bg-gradient-to-t from-sky-500 to-sky-400 transition-[height] duration-1000 ease-out delay-150"
+                  :style="show ? 'height:65%' : 'height:0%'"
+                >
+                  <div class="flex items-end leading-none">
+                    <p class="text-2xl md:text-4xl font-bold text-white">65</p>
+                    <span
+                      class="text-sm md:text-lg font-semibold text-white mb-[.2rem] ml-1"
+                      >%</span
+                    >
+                  </div>
+                  <span class="text-xs font-bold text-white/90"
+                    >JavaScript</span
+                  >
+                </div>
+              </div>
+
+              <!-- Django -->
+              <div class="relative w-[20rem] md:w-40 h-full overflow-hidden">
+                <div
+                  class="absolute bottom-0 w-full rounded-t-xl rounded-b-none flex flex-col items-center justify-end pb-4 bg-gradient-to-t from-amber-500 to-amber-400 transition-[height] duration-1000 ease-out delay-300"
+                  :style="show ? 'height:80%' : 'height:0%'"
+                >
+                  <div class="flex items-end leading-none">
+                    <p class="text-2xl md:text-4xl font-bold text-white">80</p>
+                    <span
+                      class="text-sm md:text-lg font-semibold text-white mb-[.2rem] ml-1"
+                      >%</span
+                    >
+                  </div>
+                  <span class="text-xs font-bold text-white/90">Django</span>
+                </div>
+              </div>
+
+              <!-- ML -->
+              <div class="relative w-[20rem] md:w-40 h-full overflow-hidden">
+                <div
+                  class="absolute bottom-0 w-full rounded-t-xl rounded-b-none flex flex-col items-center justify-end pb-4 bg-gradient-to-t from-purple-500 to-purple-400 transition-[height] duration-1000 ease-out delay-450"
+                  :style="show ? 'height:70%' : 'height:0%'"
+                >
+                  <div class="flex items-end leading-none">
+                    <p class="text-2xl md:text-4xl font-bold text-white">70</p>
+                    <span
+                      class="text-sm md:text-lg font-semibold text-white mb-[.2rem] ml-1"
+                      >%</span
+                    >
+                  </div>
+                  <span class="text-xs font-bold text-white/90">ML</span>
+                </div>
+              </div>
+
+              <!-- Git -->
+              <div class="relative w-[20rem] md:w-40 h-full overflow-hidden">
+                <div
+                  class="absolute bottom-0 w-full rounded-t-xl rounded-b-none flex flex-col items-center justify-end pb-4 bg-gradient-to-t from-rose-500 to-rose-400 transition-[height] duration-1000 ease-out delay-600"
+                  :style="show ? 'height:60%' : 'height:0%'"
+                >
+                  <div class="flex items-end leading-none">
+                    <p class="text-2xl md:text-4xl font-bold text-white">60</p>
+                    <span
+                      class="text-sm md:text-lg font-semibold text-white mb-[.2rem] ml-1"
+                      >%</span
+                    >
+                  </div>
+                  <span class="text-xs font-bold text-white/90">Git</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TECH SECTION -->
+    <section
+      class="min-h-screen flex items-center pt-32 mb-12"
+      x-data="{ show: false }"
+    >
+      <div
+        x-intersect.once.threshold.80="show = true"
+        class="relative bottom-32 left-0 w-px h-[420px]"
+      ></div>
+
+      <div class="max-w-6xl mx-auto px-6 w-full">
+        <div
+          class="mb-16 text-center"
+          x-show="show"
+          x-transition:enter="transition ease-out duration-700"
+          x-transition:enter-start="opacity-0 translate-y-6"
+          x-transition:enter-end="opacity-100 translate-y-0"
+        >
+          <h1 class="text-3xl font-semibold max-w-2xl mx-auto">
+            Technologies I Use to Build Modern & Scalable Applications
+          </h1>
+        </div>
+
+        <div
+          id="cards"
+          class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-2"
+        >
+          <!-- FRONTEND -->
+          <div
+            class="card rounded-xl"
+            x-show="show"
+            x-transition:enter="transition ease-out duration-700 delay-100"
+            x-transition:enter-start="opacity-0 translate-y-6"
+            x-transition:enter-end="opacity-100 translate-y-0"
+          >
+            <div class="card-content rounded-xl p-6">
+              <h3 class="text-xl font-semibold mb-4">Frontend</h3>
+              <ul class="space-y-3 text-zinc-400">
+                <li class="flex items-center gap-3">
+                  <img src="images/html-5.png" alt="HTML5" class="w-5 h-5" />
+                  HTML5 / CSS3
+                </li>
+                <li class="flex items-center gap-3">
+                  <img src="images/js.png" alt="JavaScript" class="w-5 h-5" />
+                  JavaScript (ES6+)
+                </li>
+                <li class="flex items-center gap-3">
+                  <img
+                    src="images/tailwind.png"
+                    alt="Tailwind CSS"
+                    class="w-5 h-5"
+                  />
+                  Tailwind CSS
+                </li>
+                <li class="flex items-center gap-3">
+                  <img
+                    src="images/alpinejs.png"
+                    alt="Alpine.js"
+                    class="w-5 h-5"
+                  />
+                  Alpine.js
+                </li>
+                <li class="flex items-center gap-3">
+                  <img src="images/react.png" alt="React" class="w-5 h-5" />
+                  React (Basic)
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- BACKEND -->
+          <div
+            class="card rounded-xl"
+            x-show="show"
+            x-transition:enter="transition ease-out duration-700 delay-200"
+            x-transition:enter-start="opacity-0 translate-y-6"
+            x-transition:enter-end="opacity-100 translate-y-0"
+          >
+            <div class="card-content rounded-xl p-6">
+              <h3 class="text-xl font-semibold mb-4">Backend</h3>
+              <ul class="space-y-3 text-zinc-400">
+                <li class="flex items-center gap-3">
+                  <img src="images/python.png" alt="Python" class="w-5 h-5" />
+                  Python
+                </li>
+                <li class="flex items-center gap-3">
+                  <img src="images/django.svg" alt="Django" class="w-5 h-5" />
+                  Django
+                </li>
+                <li class="flex items-center gap-3">
+                  <img src="images/api.png" alt="REST APIs" class="w-5 h-5" />
+                  REST APIs
+                </li>
+                <li class="flex items-center gap-3">
+                  <img
+                    src="images/auth.png"
+                    alt="Authentication"
+                    class="w-5 h-5"
+                  />
+                  Authentication
+                </li>
+                <li class="flex items-center gap-3">
+                  <img src="images/nodejs2.png" alt="Node js" class="w-5 h-5" />
+                  Node.js
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- DATABASE -->
+          <div
+            class="card rounded-xl"
+            x-show="show"
+            x-transition:enter="transition ease-out duration-700 delay-300"
+            x-transition:enter-start="opacity-0 translate-y-6"
+            x-transition:enter-end="opacity-100 translate-y-0"
+          >
+            <div class="card-content rounded-xl p-6">
+              <h3 class="text-xl font-semibold mb-4">Database</h3>
+              <ul class="space-y-3 text-zinc-400">
+                <li class="flex items-center gap-3">
+                  <img
+                    src="images/postgre.png"
+                    alt="PostgreSQL"
+                    class="w-5 h-5"
+                  />
+                  PostgreSQL
+                </li>
+                <li class="flex items-center gap-3">
+                  <img src="images/mysql.png" alt="MySQL" class="w-5 h-5" />
+                  MySQL
+                </li>
+                <li class="flex items-center gap-3">
+                  <img
+                    src="images/firebase.png"
+                    alt="Firebase"
+                    class="w-5 h-5"
+                  />
+                  Firebase
+                </li>
+                <li class="flex items-center gap-3">
+                  <img
+                    src="images/supabase.png"
+                    alt="Supabase DB"
+                    class="w-5 h-5"
+                  />
+                  Supabase DB
+                </li>
+                <li class="flex items-center gap-3">
+                  <img src="images/mongodb.png" alt="MongoDB" class="w-5 h-5" />
+                  Mongo DB
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- AI / ML -->
+          <div
+            class="card rounded-xl"
+            x-show="show"
+            x-transition:enter="transition ease-out duration-700 delay-400"
+            x-transition:enter-start="opacity-0 translate-y-6"
+            x-transition:enter-end="opacity-100 translate-y-0"
+          >
+            <div class="card-content rounded-xl p-6">
+              <h3 class="text-xl font-semibold mb-4">AI / Machine Learning</h3>
+              <ul class="space-y-3 text-zinc-400">
+                <li class="flex items-center gap-3">
+                  <img
+                    src="images/tensorflow.png"
+                    alt="TensorFlow"
+                    class="w-5 h-5"
+                  />
+                  TensorFlow / Keras
+                </li>
+                <li class="flex items-center gap-3">
+                  <img src="images/dl2.png" alt="MLP Models" class="w-5 h-5" />
+                  MLP Models
+                </li>
+                <li class="flex items-center gap-3">
+                  <img
+                    src="images/image.png"
+                    alt="Image Classification"
+                    class="w-5 h-5"
+                  />
+                  Image Classification
+                </li>
+                <li class="flex items-center gap-3">
+                  <img
+                    src="images/process.png"
+                    alt="Data Preprocessing"
+                    class="w-5 h-5"
+                  />
+                  Data Preprocessing
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- TOOLS -->
+          <div
+            class="card rounded-xl"
+            x-show="show"
+            x-transition:enter="transition ease-out duration-700 delay-500"
+            x-transition:enter-start="opacity-0 translate-y-6"
+            x-transition:enter-end="opacity-100 translate-y-0"
+          >
+            <div class="card-content rounded-xl p-6">
+              <h3 class="text-xl font-semibold mb-4">Tools</h3>
+              <ul class="space-y-3 text-zinc-400">
+                <li class="flex items-center gap-3">
+                  <img src="images/github.png" alt="Git" class="w-5 h-5" />
+                  Git & GitHub
+                </li>
+                <li class="flex items-center gap-3">
+                  <img src="images/render.png" alt="Render" class="w-5 h-5" />
+                  Render / Railway
+                </li>
+                <li class="flex items-center gap-3">
+                  <img src="images/vercel.png" alt="Vercel" class="w-5 h-5" />
+                  Vercel
+                </li>
+                <li class="flex items-center gap-3">
+                  <img src="images/vscode.png" alt="VS Code" class="w-5 h-5" />
+                  VS Code
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- SOFT SKILLS -->
+          <div
+            class="card rounded-xl"
+            x-show="show"
+            x-transition:enter="transition ease-out duration-700 delay-600"
+            x-transition:enter-start="opacity-0 translate-y-6"
+            x-transition:enter-end="opacity-100 translate-y-0"
+          >
+            <div class="card-content rounded-xl p-6">
+              <h3 class="text-xl font-semibold mb-4">Soft Skills</h3>
+              <ul class="space-y-3 text-zinc-400">
+                <li class="flex items-center gap-3">
+                  <img
+                    src="images/problem.png"
+                    alt="Problem Solving"
+                    class="w-5 h-5"
+                  />
+                  Problem Solving
+                </li>
+                <li class="flex items-center gap-3">
+                  <img
+                    src="images/critical.png"
+                    alt="Critical Thinking"
+                    class="w-5 h-5"
+                  />
+                  Critical Thinking
+                </li>
+                <li class="flex items-center gap-3">
+                  <img
+                    src="images/clock.png"
+                    alt="Time Management"
+                    class="w-5 h-5"
+                  />
+                  Time Management
+                </li>
+                <li class="flex items-center gap-3">
+                  <img
+                    src="images/team.png"
+                    alt="Team Collaboration"
+                    class="w-5 h-5"
+                  />
+                  Team Collaboration
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <button
+      id="back-to-top"
+      class="fixed bottom-20 right-6 z-50 hidden w-10 h-10 flex items-center justify-center rounded-full border border-zinc-500 bg-zinc-900 text-white shadow-lg hover:bg-white hover:text-zinc-900 transition-all duration-300"
+    >
+      <i class="fa-solid fa-angle-up"></i>
+    </button>
+
+    <footer class="border-t border-zinc-800 py-5">
+      <div
+        class="max-w-7xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between text-zinc-500 text-sm gap-4"
+      >
+        <div class="font-semibold">
+          © <span id="year"></span> Jun Rey Paynandos
+        </div>
+        <div class="hidden sm:flex space-x-4">
+          <a
+            href="https://github.com/JunPaynandos"
+            target="_blank"
+            class="text-zinc-400 hover:text-white transition"
+          >
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.26.82-.577v-2.03c-3.338.724-4.033-1.613-4.033-1.613-.546-1.386-1.333-1.755-1.333-1.755-1.09-.745.082-.73.082-.73 1.205.085 1.84 1.237 1.84 1.237 1.07 1.835 2.807 1.305 3.492.997.107-.775.418-1.305.762-1.605-2.665-.3-5.467-1.335-5.467-5.932 0-1.31.468-2.38 1.235-3.22-.124-.303-.535-1.523.117-3.176 0 0 1.008-.322 3.3 1.23a11.49 11.49 0 013.003-.403c1.02.004 2.045.138 3.003.403 2.29-1.552 3.296-1.23 3.296-1.23.653 1.653.242 2.873.118 3.176.77.84 1.233 1.91 1.233 3.22 0 4.61-2.807 5.628-5.48 5.922.43.37.823 1.103.823 2.222v3.293c0 .32.218.694.825.576C20.565 21.796 24 17.297 24 12c0-6.63-5.37-12-12-12z"
+              />
+            </svg>
+          </a>
+          <a
+            href="https://linkedin.com/in/yourusername"
+            target="_blank"
+            class="text-zinc-400 hover:text-white transition"
+          >
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-9h3v9zm-1.5-10.25c-.966 0-1.75-.784-1.75-1.75s.784-1.75 1.75-1.75 1.75.784 1.75 1.75-.784 1.75-1.75 1.75zm13.5 10.25h-3v-4.5c0-1.072-.927-2-2-2s-2 .928-2 2v4.5h-3v-9h3v1.25c.644-.927 1.78-1.25 2.5-1.25 2 0 3.5 1.5 3.5 4v5z"
+              />
+            </svg>
+          </a>
+          <a
+            href="https://facebook.com/jun.raxho"
+            target="_blank"
+            class="text-zinc-400 hover:text-white transition"
+          >
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M22.675 0h-21.35C.597 0 0 .593 0 1.326v21.348C0 23.407.597 24 1.325 24H12.82v-9.294H9.692v-3.622h3.128V8.413c0-3.1 1.894-4.788 4.659-4.788 1.325 0 2.464.098 2.795.142v3.24l-1.918.001c-1.504 0-1.796.716-1.796 1.767v2.317h3.587l-.467 3.622h-3.12V24h6.116C23.403 24 24 23.407 24 22.674V1.326C24 .593 23.403 0 22.675 0z"
+              />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

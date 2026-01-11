@@ -1,0 +1,125 @@
+[
+  {
+    "id": "scanmoto",
+    "images": ["images/4p.png", "images/4p2.png", "images/4p3.png"],
+    "brief": [
+      "&nbsp;&nbsp;&nbsp;&nbsp;Scanmoto is a desktop application developed for students at Mindoro State University - Main Campus who own motorcycles. The system uses students' RFID cards to automatically record attendance when entering campus parking areas, eliminating the need for manual sign-ins and streamlining the check-in process.",
+      "&nbsp;&nbsp;&nbsp;&nbsp;Designed with ease-of-use and efficiency in mind, Scanmoto provides a fast and reliable way to track motorcycle access while reducing administrative workload. The application ensures accurate attendance records, improves security, and offers a convenient solution for both students and campus staff.",
+      "Tech Stack: Visual Studio.NET · Arduino Sketch · RFID Integration "
+    ],
+    "info": {
+      "Project Name": "Scanmoto",
+      "Category": "Desktop Application",
+      "Date": "November 08, 2024",
+      "Client": "",
+      "Website": "",
+      "GitHub": ""
+    }
+  },
+  {
+    "id": "leafbuddy",
+    "images": ["images/1p1.png", "images/1p2.png", "images/1p4.png"],
+    "brief": [
+      "&nbsp;&nbsp;&nbsp;&nbsp;LeafBuddy is a web-based application designed to assist farmers in identifying common crop leaf diseases through image analysis. The system leverages multiple Convolutional Neural Network (CNN) models trained on agricultural datasets to provide accurate and reliable disease predictions. By simply uploading an image of a plant leaf, users can quickly receive diagnostic results that help in early detection and prevention of crop damage.",
+      "&nbsp;&nbsp;&nbsp;The backend is powered by Django, handling image processing, model inference, and API logic, while Supabase is used for secure data storage and management. The application features a clean and intuitive user interface built with Tailwind CSS, ensuring accessibility across different devices. LeafBuddy aims to reduce the dependency on manual inspection, improve decision-making in crop management, and support sustainable farming practices through the integration of modern machine learning technologies.",
+      "Tech Stack: Django · Tailwind CSS · Supabase · CNN Models · Render"
+    ],
+    "info": {
+      "Project Name": "LeafBuddy",
+      "Category": "Web Development",
+      "Date": "October 02, 2025",
+      "Client": "",
+      "Website": "www.leafbuddy.onrender.com",
+      "GitHub": "https://github.com/JunPaynandos/leafbuddy"
+    }
+  },
+  {
+    "id": "quizit",
+    "images": ["images/2p1.png", "images/2p2.png", "images/2p4.png"],
+    "brief": [
+      "&nbsp;&nbsp;&nbsp;&nbsp;Quizit is a comprehensive learning management system designed to help students and teachers interact seamlessly within their academic courses. Students can join their respective subjects using a unique access code, giving them access to organized learning modules, instructional materials, and course content. Teachers can create, manage, and assign quizzes, monitor student progress, and provide timely feedback, ensuring a structured and engaging learning experience.",
+      "&nbsp;&nbsp;&nbsp;&nbsp;The platform streamlines classroom management by digitizing assessments and learning resources, reducing the dependency on paper-based processes. With an intuitive interface, Quizit ensures that both students and teachers can navigate the system efficiently, promoting a more interactive and data-driven approach to education.",
+      "Tech Stack: Laravel · Bootstrap CSS · Laragon"
+    ],
+    "info": {
+      "Project Name": "Quizit",
+      "Category": "Web Development",
+      "Date": "November 18, 2024",
+      "Client": "",
+      "Website": "",
+      "GitHub": "https://github.com/JunPaynandos/quizit"
+    }
+  },
+  {
+    "id": "soilution",
+    "images": ["images/3p1.png", "images/3p3.png", "images/3p4.png"],
+    "brief": [
+      "&nbsp;&nbsp;&nbsp;&nbsp;This project is a web-based platform that analyzes soil nutrient data collected from IoT sensors deployed in agricultural fields. Using a Multilayer Perceptron (MLP) model, the system processes sensor readings to provide accurate insights into soil health, nutrient levels, and crop suitability, enabling farmers to make informed decisions.",
+      "&nbsp;&nbsp;&nbsp;&nbsp;The application features a user-friendly interface built with Tailwind CSS, with Django powering the backend and Supabase handling secure data storage. By integrating real-time IoT sensor data with machine learning, the platform supports precision agriculture, helping optimize fertilizer usage, improve crop yields, and promote sustainable farming practices.",
+      "Tech Stack: Django · Tailwind CSS · Supabase · IoT Sensors · MLP Model · Render"
+    ],
+    "info": {
+      "Project Name": "Soilution",
+      "Category": "Web Development",
+      "Date": "December 05, 2025",
+      "Client": "Creative Studio",
+      "Website": "www.soilution.onrender.com",
+      "GitHub": "https://github.com/JunPaynandos/soilution"
+    }
+  },
+  {
+    "id": "tomatoguard",
+    "images": ["images/6p1.png", "images/6p2.png", "images/6p3.png"],
+    "brief": [
+      "&nbsp;&nbsp;&nbsp;&nbsp;TomatoGuard is a mobile application designed to help farmers detect and manage tomato plant diseases. Using advanced Convolutional Neural Network (CNN) models, the app allows users to capture images of tomato leaves and receive accurate predictions of common diseases, enabling timely intervention and prevention of crop loss.",
+      "&nbsp;&nbsp;&nbsp;&nbsp;The application provides a user-friendly interface optimized for mobile devices, allowing easy navigation and quick access to disease information. By integrating AI-driven analysis with practical guidance, TomatoGuard empowers users to maintain healthy crops, improve yield, and support sustainable farming practices.",
+      "Tech Stack: Android Studio · CNN Model"
+    ],
+    "info": {
+      "Project Name": "Tomatoguard",
+      "Category": "Mobile Applcation",
+      "Date": "December 05, 2024",
+      "Client": "",
+      "Website": "",
+      "GitHub": ""
+    }
+  },
+  {
+    "id": "figma",
+    "images": ["images/7p3.png", "images/7p2.png", "images/7p1.png"],
+    "brief": [
+      "&nbsp;&nbsp;&nbsp;&nbsp;This Figma design project focuses on creating a modern, intuitive, and user-centered interface for a digital application. The design emphasizes clarity, visual hierarchy, and usability, ensuring a smooth and engaging user experience across different screen sizes.",
+      "&nbsp;&nbsp;&nbsp;&nbsp;Through thoughtful layout planning, consistent color schemes, and typography choices, the project demonstrates best practices in UI/UX design. The prototype allows stakeholders to visualize interactions and flow, making it easier to refine ideas before development.",
+      "Tools Used: Figma · UI/UX Principles · Prototyping"
+    ],
+    "info": {
+      "Project Name": "UI/UX Design Prototype",
+      "Category": "Figma Design",
+      "Date": "",
+      "Client": "",
+      "Website": "",
+      "GitHub": ""
+    }
+  },
+  {
+    "id": "moodmeet",
+    "images": [
+      "images/5p1.png",
+      "images/5p2.png",
+      "images/5p3.png"
+    ],
+    "brief": [
+      "&nbsp;&nbsp;&nbsp;&nbsp;Moodmeet is a web-based application designed to streamline the process of scheduling academic guidance and counseling sessions between students and university advisors. The platform allows students to book, reschedule, and manage appointments online, reducing waiting time and improving accessibility to guidance services.",
+      "&nbsp;&nbsp;&nbsp;&nbsp;Built using the MERN stack, the system provides real-time appointment management, secure authentication, and role-based access for students and advisors. By digitizing appointment workflows, the application enhances communication, improves administrative efficiency, and supports a more organized and student-centered guidance experience.",
+      "Tech Stack: MongoDB · Express.js · React · Node.js (MERN Stack)"
+    ],
+    "info": {
+      "Project Name": "Moodmeet",
+      "Category": "Web Application",
+      "Date": "February 2025",
+      "Client": "",
+      "Website": "",
+      "GitHub": ""
+    }
+  }
+]

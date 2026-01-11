@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Project | Jun</title>
+    <link rel="icon" type="image/png" href="/images/logo2.png" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script
+      src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"
+      defer
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+  </head>
+  <body class="bg-black text-white overflow-x-hidden">
+    <canvas
+      id="particles"
+      class="fixed inset-0 -z-10 pointer-events-none opacity-20"
+    ></canvas>
+
+    <div id="trailer">
+      <span id="trailer-icon" class="ri-arrow-right-up-line"></span>
+    </div>
+
+    <nav
+      x-data="{ open: false }"
+      class="absolute top-0 left-0 w-full z-50 bg-black/70 backdrop-blur border-zinc-800"
+    >
+      <div
+        class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between"
+      >
+        <a
+          href="index.html"
+          class="font-semibold text-lg tracking-tight hover:text-white transition"
+        >
+          Jun
+        </a>
+
+        <!-- Desktop Links -->
+        <div class="hidden sm:flex items-center gap-8 text-sm text-zinc-400">
+          <a href="about.html" class="hover:text-white transition">About</a>
+          <a href="project_list.html" class="hover:text-white transition"
+            >Projects</a
+          >
+          <a href="contact.html" class="hover:text-white transition">Contact</a>
+
+          <a
+            href="https://github.com/JunPaynandos"
+            target="_blank"
+            class="text-zinc-400 hover:text-white transition"
+          >
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.26.82-.577v-2.03c-3.338.724-4.033-1.613-4.033-1.613-.546-1.386-1.333-1.755-1.333-1.755-1.09-.745.082-.73.082-.73 1.205.085 1.84 1.237 1.84 1.237 1.07 1.835 2.807 1.305 3.492.997.107-.775.418-1.305.762-1.605-2.665-.3-5.467-1.335-5.467-5.932 0-1.31.468-2.38 1.235-3.22-.124-.303-.535-1.523.117-3.176 0 0 1.008-.322 3.3 1.23a11.49 11.49 0 013.003-.403c1.02.004 2.045.138 3.003.403 2.29-1.552 3.296-1.23 3.296-1.23.653 1.653.242 2.873.118 3.176.77.84 1.233 1.91 1.233 3.22 0 4.61-2.807 5.628-5.48 5.922.43.37.823 1.103.823 2.222v3.293c0 .32.218.694.825.576C20.565 21.796 24 17.297 24 12c0-6.63-5.37-12-12-12z"
+              />
+            </svg>
+          </a>
+          <a
+            href="https://linkedin.com/in/yourusername"
+            target="_blank"
+            class="text-zinc-400 hover:text-white transition"
+          >
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-9h3v9zm-1.5-10.25c-.966 0-1.75-.784-1.75-1.75s.784-1.75 1.75-1.75 1.75.784 1.75 1.75-.784 1.75-1.75 1.75zm13.5 10.25h-3v-4.5c0-1.072-.927-2-2-2s-2 .928-2 2v4.5h-3v-9h3v1.25c.644-.927 1.78-1.25 2.5-1.25 2 0 3.5 1.5 3.5 4v5z"
+              />
+            </svg>
+          </a>
+          <a
+            href="https://facebook.com/jun.raxho"
+            target="_blank"
+            class="text-zinc-400 hover:text-white transition"
+          >
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M22.675 0h-21.35C.597 0 0 .593 0 1.326v21.348C0 23.407.597 24 1.325 24H12.82v-9.294H9.692v-3.622h3.128V8.413c0-3.1 1.894-4.788 4.659-4.788 1.325 0 2.464.098 2.795.142v3.24l-1.918.001c-1.504 0-1.796.716-1.796 1.767v2.317h3.587l-.467 3.622h-3.12V24h6.116C23.403 24 24 23.407 24 22.674V1.326C24 .593 23.403 0 22.675 0z"
+              />
+            </svg>
+          </a>
+        </div>
+
+        <!-- Mobile Hamburger -->
+        <button
+          @click="open = !open"
+          class="sm:hidden flex items-center text-zinc-400 hover:text-white focus:outline-none"
+        >
+          <svg
+            class="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              :class="{'hidden': open, 'inline-flex': !open }"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"
+            />
+            <path
+              :class="{'hidden': !open, 'inline-flex': open }"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M6 18L18 6M6 6l12 12"
+            />
+          </svg>
+        </button>
+      </div>
+
+      <!-- Mobile Dropdown -->
+      <div
+        x-show="open"
+        @click.away="open = false"
+        x-transition:enter="transition ease-out duration-300"
+        x-transition:enter-start="opacity-0 -translate-y-4"
+        x-transition:enter-end="opacity-100 translate-y-0"
+        x-transition:leave="transition ease-in duration-200"
+        x-transition:leave-start="opacity-100 translate-y-0"
+        x-transition:leave-end="opacity-0 -translate-y-4"
+        class="sm:hidden bg-black/90 backdrop-blur border-t border-b border-zinc-800 px-0 py-6 flex flex-col items-center text-zinc-400"
+      >
+        <a
+          href="about.html"
+          class="hover:text-white transition text-center w-full border-b border-zinc-800 pb-3 mb-3"
+          >About</a
+        >
+        <a
+          href="project_list.html"
+          class="hover:text-white transition text-center w-full border-b border-zinc-800 pb-3 mb-3"
+          >Projects</a
+        >
+        <a
+          href="contact.html"
+          class="hover:text-white transition text-center w-full border-b border-zinc-800 pb-3 mb-3"
+          >Contact</a
+        >
+
+        <div class="flex gap-6 mt-4">
+          <a
+            href="https://github.com/JunPaynandos"
+            target="_blank"
+            class="hover:text-white transition"
+          >
+            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.26.82-.577v-2.03c-3.338.724-4.033-1.613-4.033-1.613-.546-1.386-1.333-1.755-1.333-1.755-1.09-.745.082-.73.082-.73 1.205.085 1.84 1.237 1.84 1.237 1.07 1.835 2.807 1.305 3.492.997.107-.775.418-1.305.762-1.605-2.665-.3-5.467-1.335-5.467-5.932 0-1.31.468-2.38 1.235-3.22-.124-.303-.535-1.523.117-3.176 0 0 1.008-.322 3.3 1.23a11.49 11.49 0 013.003-.403c1.02.004 2.045.138 3.003.403 2.29-1.552 3.296-1.23 3.296-1.23.653 1.653.242 2.873.118 3.176.77.84 1.233 1.91 1.233 3.22 0 4.61-2.807 5.628-5.48 5.922.43.37.823 1.103.823 2.222v3.293c0 .32.218.694.825.576C20.565 21.796 24 17.297 24 12c0-6.63-5.37-12-12-12z"
+              />
+            </svg>
+          </a>
+          <a
+            href="https://linkedin.com/in/yourusername"
+            target="_blank"
+            class="hover:text-white transition"
+          >
+            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-9h3v9zm-1.5-10.25c-.966 0-1.75-.784-1.75-1.75s.784-1.75 1.75-1.75 1.75.784 1.75 1.75-.784 1.75-1.75 1.75zm13.5 10.25h-3v-4.5c0-1.072-.927-2-2-2s-2 .928-2 2v4.5h-3v-9h3v1.25c.644-.927 1.78-1.25 2.5-1.25 2 0 3.5 1.5 3.5 4v5z"
+              />
+            </svg>
+          </a>
+          <a
+            href="https://facebook.com/jun.raxho"
+            target="_blank"
+            class="text-zinc-400 hover:text-white transition"
+          >
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M22.675 0h-21.35C.597 0 0 .593 0 1.326v21.348C0 23.407.597 24 1.325 24H12.82v-9.294H9.692v-3.622h3.128V8.413c0-3.1 1.894-4.788 4.659-4.788 1.325 0 2.464.098 2.795.142v3.24l-1.918.001c-1.504 0-1.796.716-1.796 1.767v2.317h3.587l-.467 3.622h-3.12V24h6.116C23.403 24 24 23.407 24 22.674V1.326C24 .593 23.403 0 22.675 0z"
+              />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Page Transition Overlay -->
+    <div
+      id="page-transition"
+      class="fixed inset-0 bg-black z-50 translate-x-full transition-transform duration-700"
+    ></div>
+
+    <section
+      id="page"
+      class="max-w-6xl mx-6 md:mx-auto py-24 opacity-0 translate-y-6 transition-all duration-700"
+    >
+      <nav class="mb-12">
+        <a
+          href="project_list.html"
+          class="inline-flex items-center gap-2 text-sm text-zinc-400 hover:text-white transition"
+        >
+          <i class="fa-solid fa-angle-left"></i> Back to projects
+        </a>
+      </nav>
+
+      <div class="grid grid-cols-1 lg:grid-cols-5 gap-6 mb-16">
+        <div class="lg:col-span-3">
+          <img
+            id="image-main"
+            class="w-full h-[18rem] lg:h-[25.2rem] rounded-xl"
+            alt=""
+          />
+        </div>
+
+        <div class="lg:col-span-2 flex flex-col gap-5">
+          <img
+            id="image-side-1"
+            class="w-full h-[18rem] lg:h-[12rem] object-cover rounded-xl"
+            alt=""
+          />
+          <img
+            id="image-side-2"
+            class="w-full h-[18rem] lg:h-[12rem] object-cover rounded-xl"
+            alt=""
+          />
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-5 gap-12 -mt-4">
+        <div class="lg:col-span-3">
+          <h2 class="text-xl font-semibold mb-4">Project Brief:</h2>
+
+          <div
+            id="brief"
+            class="space-y-5 text-md text-zinc-300 leading-relaxed text-justify"
+          >
+            <!-- injected -->
+          </div>
+        </div>
+
+        <aside class="lg:col-span-2">
+          <h2 class="text-xl font-semibold mb-4">Project Info:</h2>
+
+          <dl id="info" class="space-y-4 text-sm">
+            <!-- injected -->
+          </dl>
+        </aside>
+      </div>
+
+      <div class="flex justify-between mt-20 text-sm">
+        <a id="prev" class="hover:underline text-zinc-400 hover:text-white"></a>
+        <a id="next" class="hover:underline text-zinc-400 hover:text-white"></a>
+      </div>
+    </section>
+
+    <!-- Image Zoom Overlay -->
+    <div
+      id="image-overlay"
+      class="fixed inset-0 z-[999] hidden items-center justify-center bg-black/40 backdrop-blur-md cursor-zoom-out"
+    >
+      <img
+        id="overlay-img"
+        class="max-w-[90vw] max-h-[90vh] rounded-xl transition-all duration-500 ease-out scale-75 opacity-0"
+        alt=""
+      />
+    </div>
+
+    <script src="project.js"></script>
+    <script src="script.js"></script>
+
+  </body>
+</html>

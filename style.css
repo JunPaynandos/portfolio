@@ -1,0 +1,130 @@
+body {
+  background-color: rgb(20, 20, 20);
+}
+
+body:hover > #trailer {
+  opacity: 1;
+}
+
+#trailer {
+  height: 20px;
+  width: 20px;
+  background-color: white;
+  border-radius: 9999px;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 10000;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 500ms ease;
+  display: grid;
+  place-items: center;
+}
+
+#trailer:not([data-type=""]) > #trailer-icon {
+  opacity: 1;
+}
+
+#trailer-icon {
+  font-size: 6px;
+  opacity: 0;
+  transition: opacity 400ms ease;
+  color: black;
+}
+
+.interactable {
+  background-position: center;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  transition: background-size 400ms ease, opacity 400ms ease;
+}
+
+.interactable:hover {
+  background-size: 105%;
+  opacity: 0.9;
+}
+
+/* cards effect in about page*/
+.card {
+  position: relative;
+  padding: 1px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.08);
+  overflow: hidden;
+  --inner-glow: 0;
+  --border-glow: 0;
+}
+
+.card::before,
+.card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: var(--glow-strength);
+  transition: opacity 500ms;
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+.card::after {
+  background: radial-gradient(
+    600px circle at var(--mouse-x) var(--mouse-y),
+    rgba(255, 255, 255, 0.45),
+    transparent 40%
+  );
+  opacity: var(--border-glow);
+  z-index: 0;
+}
+
+.card::before {
+  background: radial-gradient(
+    800px circle at var(--mouse-x) var(--mouse-y),
+    rgba(255, 255, 255, 0.12),
+    transparent 45%
+  );
+  opacity: var(--inner-glow);
+  z-index: 3;
+}
+
+.card:hover::before,
+.card:hover::after {
+  opacity: unset;
+}
+
+.card-content {
+  position: relative;
+  background: rgb(23, 23, 23);
+  border-radius: inherit;
+  z-index: 2;
+}
+
+/* floating animation around image */
+.floating-item {
+  --px: 0px;
+  --py: 0px;
+  will-change: transform;
+  transition: transform 0.12s ease-out;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translate(var(--px), var(--py)) translateY(0);
+  }
+  50% {
+    transform: translate(var(--px), var(--py)) translateY(-10px);
+  }
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+.animate-float-slow {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-float-fast {
+  animation: float 3s ease-in-out infinite;
+}
