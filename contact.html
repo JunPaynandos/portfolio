@@ -19,7 +19,7 @@
   <body class="bg-black text-zinc-100 antialiased">
     <canvas
       id="particles"
-      class="fixed inset-0 -z-10 pointer-events-none opacity-20"
+      class="fixed inset-0 -z-10 pointer-events-none opacity-30"
     ></canvas>
 
     <nav
@@ -181,7 +181,7 @@
 
     <!-- CONTACT SECTION -->
     <section
-      class="min-h-screen flex items-center pt-32"
+      class="min-h-screen flex items-center pt-32 mb-6"
       x-data="{ show: false }"
       x-init="setTimeout(() => show = true, 200)"
     >
@@ -198,35 +198,35 @@
           <h1 class="text-4xl md:text-5xl font-bold mb-6">Get in Touch</h1>
 
           <p
-            class="text-zinc-400 text-lg leading-relaxed mb-4"
+            class="text-zinc-400 text-sm md:text-lg leading-relaxed mb-4 text-justify"
             x-transition.delay.100ms
           >
-            Have a project in mind, a question, or just want to connect? I’m
+            &nbsp;&nbsp;&nbsp;&nbsp;Have a project in mind, a question, or just want to connect? I’m
             always open to discussing new ideas and opportunities.
           </p>
 
           <p
-            class="text-zinc-400 text-lg leading-relaxed"
+            class="text-zinc-400 text-sm md:text-lg leading-relaxed text-justify"
             x-transition.delay.200ms
           >
-            Feel free to send a message, and I’ll get back to you as soon as I
+            &nbsp;&nbsp;&nbsp;&nbsp;Feel free to send a message, and I’ll get back to you as soon as I
             can.
           </p>
 
           <div class="mt-8 space-y-3 text-zinc-400" x-transition.delay.300ms>
             <div class="flex items-center gap-2">
               <img src="/images/email.png" class="w-4 h-4" />
-              <span>junreypaynandos@gmail.com</span>
+              <span class="text-sm md:text-lg">junreypaynandos@gmail.com</span>
             </div>
 
             <div class="flex items-center gap-2">
               <img src="/images/location.png" class="w-4 h-4" />
-              <span>Alcate, Victoria, Oriental Mindoro, Philippines</span>
+              <span class="text-sm md:text-lg">Alcate, Victoria, Oriental Mindoro, Philippines</span>
             </div>
 
             <div class="flex items-center gap-2">
               <img src="/images/phone-call.png" class="w-4 h-4" />
-              <span>+6395 384 0596</span>
+              <span class="text-sm md:text-lg">+6395 384 0596</span>
             </div>
           </div>
         </div>
