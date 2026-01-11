@@ -126,7 +126,6 @@ resize();
 initParticles(currentCount);
 animate();
 
-
 /* Scroll button up & getting current year */
 const backToTopBtn = document.getElementById("back-to-top");
 
@@ -172,8 +171,6 @@ document.addEventListener("DOMContentLoaded", () => {
   if (year) year.textContent = new Date().getFullYear();
 });
 
-
-
 /* Parallax effect for floating images */
 document.addEventListener("DOMContentLoaded", () => {
   const parallaxContainer = document.getElementById("profile-parallax");
@@ -210,48 +207,53 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
+/* Mouse trail effect */
+const isMobile =
+  window.matchMedia("(pointer: coarse)").matches ||
+  /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
 
-const trailer = document.getElementById("trailer");
+if (!isMobile) {
+  const trailer = document.getElementById("trailer");
 
-const animateTrailer = (e, interacting) => {
-  const x = e.clientX - trailer.offsetWidth / 2;
-  const y = e.clientY - trailer.offsetHeight / 2;
+  const animateTrailer = (e, interacting) => {
+    const x = e.clientX - trailer.offsetWidth / 2;
+    const y = e.clientY - trailer.offsetHeight / 2;
 
-  trailer.animate(
-    {
-      transform: `translate(${x}px, ${y}px) scale(${interacting ? 3 : 1})`,
-    },
-    {
-      duration: 800,
-      fill: "forwards",
+    trailer.animate(
+      {
+        transform: `translate(${x}px, ${y}px) scale(${interacting ? 3 : 1})`,
+      },
+      {
+        duration: 800,
+        fill: "forwards",
+      }
+    );
+  };
+
+  const getTrailerClass = (type) => {
+    switch (type) {
+      case "video":
+        return "fa-solid fa-play";
+      default:
+        return "ri-arrow-right-up-line";
     }
-  );
-};
+  };
 
-const getTrailerClass = (type) => {
-  switch (type) {
-    case "video":
-      return "fa-solid fa-play";
-    default:
-      return "ri-arrow-right-up-line";
-  }
-};
+  window.onmousemove = (e) => {
+    const interactable = e.target.closest(".interactable");
+    const interacting = interactable !== null;
 
-window.onmousemove = (e) => {
-  const interactable = e.target.closest(".interactable");
-  const interacting = interactable !== null;
+    const icon = document.getElementById("trailer-icon");
 
-  const icon = document.getElementById("trailer-icon");
+    animateTrailer(e, interacting);
 
-  animateTrailer(e, interacting);
+    trailer.dataset.type = interacting ? interactable.dataset.type : "";
 
-  trailer.dataset.type = interacting ? interactable.dataset.type : "";
-
-  if (interacting) {
-    icon.className = getTrailerClass(interactable.dataset.type);
-  }
-};
-
+    if (interacting) {
+      icon.className = getTrailerClass(interactable.dataset.type);
+    }
+  };
+}
 
 /* Card effect */
 const cards = document.querySelectorAll(".card");
@@ -301,5 +303,3 @@ cardsContainer.addEventListener("mouseleave", () => {
     card.style.setProperty("--border-glow", 0);
   });
 });
-
-

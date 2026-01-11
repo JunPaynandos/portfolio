@@ -45,6 +45,12 @@ body:hover > #trailer {
   opacity: 0.9;
 }
 
+@media (pointer: coarse) {
+  #trailer {
+    display: none !important;
+  }
+}
+
 /* cards effect in about page*/
 .card {
   position: relative;
