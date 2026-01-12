@@ -333,13 +333,13 @@
                   :style="show ? 'height:90%' : 'height:0%'"
                 >
                   <div class="flex items-end leading-none">
-                    <p class="text-2xl md:text-4xl font-bold text-white">90</p>
+                    <p class="text-lg md:text-4xl font-bold text-white">90</p>
                     <span
                       class="text-sm md:text-lg font-semibold text-white mb-[.2rem] ml-1"
                       >%</span
                     >
                   </div>
-                  <span class="text-xs font-bold text-white/90">HTML</span>
+                  <span class="text-xs md:text-lg font-bold text-white/90">HTML</span>
                 </div>
               </div>
 
@@ -347,18 +347,19 @@
               <div class="relative w-[20rem] md:w-40 h-full overflow-hidden">
                 <div
                   class="absolute bottom-0 w-full rounded-t-xl rounded-b-none flex flex-col items-center justify-end pb-4 bg-gradient-to-t from-sky-500 to-sky-400 transition-[height] duration-1000 ease-out delay-150"
-                  :style="show ? 'height:65%' : 'height:0%'"
+                  :style="show ? 'height:60%' : 'height:0%'"
                 >
                   <div class="flex items-end leading-none">
-                    <p class="text-2xl md:text-4xl font-bold text-white">65</p>
+                    <p class="text-lg md:text-4xl font-bold text-white">60</p>
                     <span
                       class="text-sm md:text-lg font-semibold text-white mb-[.2rem] ml-1"
                       >%</span
                     >
                   </div>
-                  <span class="text-xs font-bold text-white/90"
-                    >JavaScript</span
-                  >
+                  <span class="text-xs md:text-lg  font-bold text-white/90">
+                    <span class="inline sm:hidden">JS</span>
+                    <span class="hidden sm:inline">JavaScript</span>
+                  </span>
                 </div>
               </div>
 
@@ -366,16 +367,16 @@
               <div class="relative w-[20rem] md:w-40 h-full overflow-hidden">
                 <div
                   class="absolute bottom-0 w-full rounded-t-xl rounded-b-none flex flex-col items-center justify-end pb-4 bg-gradient-to-t from-amber-500 to-amber-400 transition-[height] duration-1000 ease-out delay-300"
-                  :style="show ? 'height:80%' : 'height:0%'"
+                  :style="show ? 'height:85%' : 'height:0%'"
                 >
                   <div class="flex items-end leading-none">
-                    <p class="text-2xl md:text-4xl font-bold text-white">80</p>
+                    <p class="text-lg md:text-4xl font-bold text-white">85</p>
                     <span
                       class="text-sm md:text-lg font-semibold text-white mb-[.2rem] ml-1"
                       >%</span
                     >
                   </div>
-                  <span class="text-xs font-bold text-white/90">Django</span>
+                  <span class="text-xs md:text-lg font-bold text-white/90">Django</span>
                 </div>
               </div>
 
@@ -383,16 +384,19 @@
               <div class="relative w-[20rem] md:w-40 h-full overflow-hidden">
                 <div
                   class="absolute bottom-0 w-full rounded-t-xl rounded-b-none flex flex-col items-center justify-end pb-4 bg-gradient-to-t from-purple-500 to-purple-400 transition-[height] duration-1000 ease-out delay-450"
-                  :style="show ? 'height:70%' : 'height:0%'"
+                  :style="show ? 'height:65%' : 'height:0%'"
                 >
                   <div class="flex items-end leading-none">
-                    <p class="text-2xl md:text-4xl font-bold text-white">70</p>
+                    <p class="text-lg md:text-4xl font-bold text-white">65</p>
                     <span
                       class="text-sm md:text-lg font-semibold text-white mb-[.2rem] ml-1"
                       >%</span
                     >
                   </div>
-                  <span class="text-xs font-bold text-white/90">ML</span>
+                  <span class="text-xs md:text-lg  font-bold text-white/90">
+                    <span class="inline sm:hidden">ML</span>
+                    <span class="hidden sm:inline">Machine Learning</span>
+                  </span>
                 </div>
               </div>
 
@@ -403,13 +407,13 @@
                   :style="show ? 'height:60%' : 'height:0%'"
                 >
                   <div class="flex items-end leading-none">
-                    <p class="text-2xl md:text-4xl font-bold text-white">60</p>
+                    <p class="text-lg md:text-4xl font-bold text-white">60</p>
                     <span
                       class="text-sm md:text-lg font-semibold text-white mb-[.2rem] ml-1"
                       >%</span
                     >
                   </div>
-                  <span class="text-xs font-bold text-white/90">Git</span>
+                  <span class="text-xs md:text-lg font-bold text-white/90">Git</span>
                 </div>
               </div>
             </div>
@@ -512,11 +516,7 @@
                   REST APIs
                 </li>
                 <li class="flex items-center gap-3">
-                  <img
-                    src="images/php.png"
-                    alt="Php"
-                    class="w-5 h-5"
-                  />
+                  <img src="images/php.png" alt="Php" class="w-5 h-5" />
                   Php
                 </li>
                 <li class="flex items-center gap-3">
