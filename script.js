@@ -176,6 +176,12 @@ document.addEventListener("DOMContentLoaded", () => {
   const parallaxContainer = document.getElementById("profile-parallax");
   if (!parallaxContainer) return;
 
+  const isTouchOnly = window.matchMedia(
+    "(hover: none) and (pointer: coarse)"
+  ).matches;
+
+  if (isTouchOnly) return;
+
   const items = parallaxContainer.querySelectorAll(".floating-item");
 
   function handleMouseMove(e) {
