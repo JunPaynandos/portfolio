@@ -35,10 +35,12 @@ fetch("data/projects.json")
     document.title = `${project.info["Project Name"]} | Jun`;
 
     /* ---------- Images (60 / 40 layout) ---------- */
-    if (project.images && project.images.length >= 3) {
-      mainImageEl.src = project.images[0];
-      sideImage1El.src = project.images[1];
-      sideImage2El.src = project.images[2];
+    if (project.images && project.images.length) {
+      galleryImages = [...project.images];
+
+      mainImageEl.src = galleryImages[0];
+      sideImage1El.src = galleryImages[1] || galleryImages[0];
+      sideImage2El.src = galleryImages[2] || galleryImages[0];
 
       mainImageEl.alt = project.info["Project Name"];
       sideImage1El.alt = project.info["Project Name"];
@@ -137,39 +139,81 @@ function show404() {
   `;
 }
 
-/* ---------- image zoom function ---------- */
+/* ---------- Image Carousel ---------- */
 const images = document.querySelectorAll(
-  "#image-main, #image-side-1, #image-side-2"
+  "#image-main, #image-side-1, #image-side-2",
 );
 
 const overlay = document.getElementById("image-overlay");
 const overlayImg = document.getElementById("overlay-img");
 
-images.forEach((img) => {
+const prevBtn = document.getElementById("prev-image");
+const nextBtn = document.getElementById("next-image");
+const closeBtn = document.getElementById("close-overlay");
+
+function showImage(index) {
+  if (!galleryImages.length) return;
+
+  if (index < 0) {
+    index = galleryImages.length - 1;
+  }
+
+  if (index >= galleryImages.length) {
+    index = 0;
+  }
+
+  currentImageIndex = index;
+  overlayImg.src = galleryImages[currentImageIndex];
+}
+
+images.forEach((img, index) => {
   img.classList.add("cursor-zoom-in");
 
   img.addEventListener("click", () => {
+    showImage(index);
+
     overlay.classList.remove("hidden");
     overlay.classList.add("flex");
-    overlayImg.src = img.src;
-
-    requestAnimationFrame(() => {
-      overlayImg.classList.remove("scale-75", "opacity-0");
-      overlayImg.classList.add("scale-100", "opacity-100");
-    });
   });
 });
 
-overlay.addEventListener("click", () => {
-  overlayImg.classList.remove("scale-100", "opacity-100");
-  overlayImg.classList.add("scale-75", "opacity-0");
+prevBtn.addEventListener("click", (e) => {
+  e.stopPropagation();
+  showImage(currentImageIndex - 1);
+});
 
+nextBtn.addEventListener("click", (e) => {
+  e.stopPropagation();
+  showImage(currentImageIndex + 1);
+});
+
+closeBtn.addEventListener("click", () => {
   overlay.classList.add("hidden");
   overlay.classList.remove("flex");
 });
 
+overlay.addEventListener("click", (e) => {
+  if (e.target === overlay) {
+    overlay.classList.add("hidden");
+    overlay.classList.remove("flex");
+  }
+});
+
 document.addEventListener("keydown", (e) => {
-  if (e.key === "Escape" && !overlay.classList.contains("hidden")) {
-    overlay.click();
+  if (overlay.classList.contains("hidden")) return;
+
+  switch (e.key) {
+    case "ArrowLeft":
+      showImage(currentImageIndex - 1);
+      break;
+
+    case "ArrowRight":
+      showImage(currentImageIndex + 1);
+      break;
+
+    case "Escape":
+      overlay.classList.add("hidden");
+      overlay.classList.remove("flex");
+      break;
   }
 });

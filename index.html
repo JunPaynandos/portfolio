@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -60,7 +60,7 @@
             </svg>
           </a>
           <a
-            href="https://linkedin.com/in/yourusername"
+            href="https://ph.linkedin.com/in/jun-rey-paynandos-a9725a411"
             target="_blank"
             class="text-zinc-400 hover:text-white transition"
           >
@@ -86,29 +86,22 @@
         <!-- Mobile Hamburger -->
         <button
           @click="open = !open"
-          class="sm:hidden flex items-center text-zinc-400 hover:text-white focus:outline-none"
+          class="sm:hidden -mt-3 ml-auto w-6 h-6 flex flex-col justify-center items-end gap-[4px] focus:outline-none group"
         >
-          <svg
-            class="w-6 h-6"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              :class="{'hidden': open, 'inline-flex': !open }"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M4 6h16M4 12h16M4 18h16"
-            />
-            <path
-              :class="{'hidden': !open, 'inline-flex': open }"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M6 18L18 6M6 6l12 12"
-            />
-          </svg>
+          <span
+            class="block h-0.5 bg-zinc-400 group-hover:bg-white transition-all duration-300 origin-center"
+            :class="open ? 'w-5 rotate-45 translate-y-2' : 'w-6'"
+          ></span>
+
+          <span
+            class="block h-0.5 bg-zinc-400 group-hover:bg-white transition-all duration-300"
+            :class="open ? 'opacity-0' : 'w-[18px]'"
+          ></span>
+
+          <span
+            class="block h-0.5 bg-zinc-400 group-hover:bg-white transition-all duration-300 origin-center"
+            :class="open ? 'w-5 -rotate-45 -translate-y-1' : 'w-3'"
+          ></span>
         </button>
       </div>
 
@@ -153,7 +146,7 @@
             </svg>
           </a>
           <a
-            href="https://linkedin.com/in/yourusername"
+            href="https://ph.linkedin.com/in/jun-rey-paynandos-a9725a411"
             target="_blank"
             class="hover:text-white transition"
           >
@@ -441,7 +434,7 @@
             </svg>
           </a>
           <a
-            href="https://linkedin.com/in/yourusername"
+            href="https://ph.linkedin.com/in/jun-rey-paynandos-a9725a411"
             target="_blank"
             class="text-zinc-400 hover:text-white transition"
           >
